@@ -12,7 +12,8 @@ export const NavStyle = styled.nav`
   a {
     text-decoration: none;
     color: hsl(218, 91%, 64%);
-    font-size: 2.5rem;
+    font-size: 2.3rem;
+    font-weight: 600;
 
     &:hover {
       color: hsl(41, 91%, 61%);
@@ -24,4 +25,8 @@ export const NavStyle = styled.nav`
     font-size: 1.5rem;
     color: hsl(218, 60%, 60%);
   }
+`;
+
+export const NavWrapper = styled.div`
+  padding: 0 20px;
 `;
