@@ -21,6 +21,7 @@ export const NavWrapper = styled.div`
     p {
       font-size: 1.5rem;
       color: deepskyblue;
+      -webkit-text-stroke: 1px #333;
     }
   }
 `;
