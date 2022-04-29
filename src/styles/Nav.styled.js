@@ -16,6 +16,11 @@ export const NavWrapper = styled.div`
       text-decoration: none;
       color: deeppink;
       font-weight: 700;
+
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        color: #65b867;
+      }
     }
 
     p {

@@ -31,5 +31,9 @@ export const IconWrapper = styled.div`
 `;
 
 export const CheckIconStyle = {
-  color: "green",
+  color: "#65b867",
+};
+
+export const CloseIconStyle = {
+  color: "#1a73e8",
 };

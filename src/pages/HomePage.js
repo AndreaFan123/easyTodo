@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+
 import { LinkStyle, Wrapper, AddtodoIcon } from "../styles/Home.styled";
 import { FaList } from "react-icons/fa";
 

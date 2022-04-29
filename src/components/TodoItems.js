@@ -4,6 +4,8 @@ import {
   ListItemWrapper,
   IconWrapper,
   TodoWrapper,
+  CheckIconStyle,
+  CloseIconStyle,
 } from "../styles/TodoItem.styled";
 
 export default function TodoItems({ todo, removeTodo, completedTodo }) {
@@ -16,8 +18,14 @@ export default function TodoItems({ todo, removeTodo, completedTodo }) {
       >
         {todo.text}
         <IconWrapper>
-          <RiCheckboxCircleLine onClick={() => completedTodo(todo.id)} />
-          <RiCloseCircleLine onClick={() => removeTodo(todo.id)} />
+          <RiCheckboxCircleLine
+            style={CheckIconStyle}
+            onClick={() => completedTodo(todo.id)}
+          />
+          <RiCloseCircleLine
+            style={CloseIconStyle}
+            onClick={() => removeTodo(todo.id)}
+          />
         </IconWrapper>
       </ListItemWrapper>
     </TodoWrapper>

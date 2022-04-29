@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import TodoForm from "../components/TodoForm";
 import TodoItems from "../components/TodoItems";
 import { AddTodoWrapper } from "../styles/ListPage.styled";
@@ -53,6 +54,9 @@ export default function ListPage() {
           />
         );
       })}
+      <NavLink to="/">
+        <span>&larr;</span> Go back
+      </NavLink>
     </AddTodoWrapper>
   );
 }
