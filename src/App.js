@@ -4,27 +4,25 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ListPage from "./pages/ListPage";
 
-import { GlobalStyles } from "./global-styles/Global.styled";
+import { GlobalStyles } from "./styles/Global.styled";
 import Navbar from "./components/Navbar";
-import { WrapperStyle } from "./styles/Wrapper.styled";
-import Footer from "./components/Footer";
+// import { WrapperStyle } from "./styles/Wrapper.styled";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <WrapperStyle>
+      <div>
         <GlobalStyles />
         <Navbar />
 
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
+          <Route exact path={"/"} element={<HomePage />} />
         </Routes>
 
         <Routes>
-          <Route path="/lists" element={<ListPage />} />
+          <Route path={"/lists"} element={<ListPage />} />
         </Routes>
-      </WrapperStyle>
-      <Footer />
+      </div>
     </BrowserRouter>
   );
 }

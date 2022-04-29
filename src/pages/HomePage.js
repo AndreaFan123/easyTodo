@@ -1,16 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-import { FcTodoList } from "react-icons/fc";
-import { AddTodoStyle, AddTodoWrapper } from "../styles/Home.style";
+import { NavLink } from "react-router-dom";
+import { LinkStyle, Wrapper, AddtodoIcon } from "../styles/Home.styled";
+import { FaList } from "react-icons/fa";
 
 export default function HomePage() {
   return (
-    <AddTodoWrapper>
-      <AddTodoStyle>
-        <Link to="/lists">Add your todos here</Link>
-        <FcTodoList size={3 + "rem"} />
-      </AddTodoStyle>
-    </AddTodoWrapper>
+    <Wrapper>
+      <LinkStyle to="/lists">
+        <p>Add todo here</p>
+        <FaList style={AddtodoIcon} />
+      </LinkStyle>
+    </Wrapper>
   );
 }

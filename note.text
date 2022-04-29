@@ -1,0 +1,27 @@
+      <form>
+        <div>
+          <input type="text" />
+        </div>
+        <button type="submit">
+          {/* <FcPlus size={2 + "rem"} /> */}
+          Add todo
+        </button>
+      </form>
+
+      <section>
+        <ul>
+          <li>
+            <p>eurfjrfkojapiohff</p>
+            <div>
+              <button type="submit">
+                {/* <MdCheckCircleOutline size={2 + "rem"} /> */}
+                Complete
+              </button>
+              <button type="submit">
+                {/* <MdDeleteOutline size={2 + "rem"} /> */}
+                Delete
+              </button>
+            </div>
+          </li>
+        </ul>
+      </section>

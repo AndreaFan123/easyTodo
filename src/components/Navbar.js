@@ -1,14 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { NavStyle, NavWrapper } from "../styles/Navbar.styled";
+import { NavLink } from "react-router-dom";
+
+import { NavWrapper } from "../styles/Nav.styled";
 
 export default function Navbar() {
   return (
     <NavWrapper>
-      <NavStyle>
-        <Link to="/">easyTodo</Link>
+      <nav>
+        <NavLink exact to="/">
+          easyTodo
+        </NavLink>
         <p>manage your daily tasks</p>
-      </NavStyle>
+      </nav>
     </NavWrapper>
   );
 }
