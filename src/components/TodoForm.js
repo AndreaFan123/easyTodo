@@ -12,8 +12,17 @@ export default function TodoForm({ addTodo }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTodo(inputValue);
-    setInputValue("");
+    if (inputValue !== "") {
+      addTodo(inputValue);
+      setInputValue("");
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      addTodo(inputValue);
+      setInputValue("");
+    }
   };
 
   return (
@@ -23,6 +32,7 @@ export default function TodoForm({ addTodo }) {
         type="text"
         placeholder="Add a todo"
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
       />
       <button onClick={handleSubmit} type="submit">
         +

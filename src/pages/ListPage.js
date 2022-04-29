@@ -49,6 +49,7 @@ export default function ListPage() {
             key={todo.id}
             removeTodo={removeTodo}
             completedTodo={completedTodo}
+            isCompleted={false}
           />
         );
       })}

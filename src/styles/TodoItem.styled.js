@@ -23,3 +23,7 @@ export const IconWrapper = styled.div`
   font-size: 2rem;
   cursor: pointer;
 `;
+
+export const CheckIconStyle = {
+  color: "green",
+};
