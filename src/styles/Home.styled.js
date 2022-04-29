@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 30px auto;
   display: flex;
   justify-content: center;
 `;
@@ -21,6 +21,11 @@ export const LinkStyle = styled(NavLink)`
   padding: 20px 70px;
   cursor: pointer;
   text-decoration: none;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    font-size: 1.5rem;
+  }
 `;
 
 export const AddtodoIcon = {

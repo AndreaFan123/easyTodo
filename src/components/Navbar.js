@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <NavWrapper>
       <nav>
-        <NavLink exact to="/">
+        <NavLink exact="true" to="/">
           easyTodo
         </NavLink>
         <p>manage your daily tasks</p>

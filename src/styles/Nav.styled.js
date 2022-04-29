@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 10px auto;
   border-bottom: 2px dashed #333;
   nav {
     display: flex;
@@ -22,6 +22,14 @@ export const NavWrapper = styled.div`
       font-size: 1.5rem;
       color: deepskyblue;
       -webkit-text-stroke: 1px #333;
+    }
+  }
+
+  @media (max-width: 540px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
     }
   }
 `;

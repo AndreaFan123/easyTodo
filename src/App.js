@@ -16,11 +16,8 @@ export default function App() {
         <Navbar />
 
         <Routes>
-          <Route exact path={"/"} element={<HomePage />} />
-        </Routes>
-
-        <Routes>
-          <Route path={"/lists"} element={<ListPage />} />
+          <Route exact="true" path="/" element={<HomePage />} />
+          <Route path="/lists" element={<ListPage />} />
         </Routes>
       </div>
     </BrowserRouter>

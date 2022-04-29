@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
-export const ListItemWrapper = styled.div`
+export const TodoWrapper = styled.div`
   width: 100%;
   max-width: 600px;
+  padding: 0 10px;
+`;
+
+export const ListItemWrapper = styled.div`
+  /* width: 100%;
+  max-width: 600px; */
   margin: 10px auto;
   font-size: 1.3rem;
   display: flex;
