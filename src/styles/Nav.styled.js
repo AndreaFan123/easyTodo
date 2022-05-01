@@ -23,8 +23,13 @@ export const NavWrapper = styled.div`
       }
     }
 
+    div a {
+      font-size: 1.3rem;
+      padding-left: 15px;
+    }
+
     p {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: deepskyblue;
       -webkit-text-stroke: 1px #333;
     }

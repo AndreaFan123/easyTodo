@@ -9,7 +9,7 @@ export const AddTodoWrapper = styled.div`
   align-items: center;
 
   h2 {
-    color: deeppink;
+    color: #ff1493;
     font-size: 1.5rem;
     margin-top: 20px;
   }
@@ -17,10 +17,10 @@ export const AddTodoWrapper = styled.div`
   a {
     text-decoration: none;
     font-size: 1.2rem;
-    background: deeppink;
+    background: #ff1493;
     border-radius: 10px;
     border-bottom: 4px solid #999;
-    color: white;
+    color: #fafafa;
     padding: 10px 15px;
     margin-top: 20px;
 

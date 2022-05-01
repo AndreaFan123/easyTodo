@@ -17,4 +17,15 @@ body {
   height: 100%;
 }
 
+form {
+  width: 100%;
+  max-width: 450px;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+label {
+  display: block;
+  font-size: 1.3rem;
+}
 `;

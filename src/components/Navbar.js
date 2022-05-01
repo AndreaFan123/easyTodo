@@ -11,6 +11,10 @@ export default function Navbar() {
           easyTodo
         </NavLink>
         <p>manage your daily tasks</p>
+        <div>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/signup">Signup</NavLink>
+        </div>
       </nav>
     </NavWrapper>
   );
