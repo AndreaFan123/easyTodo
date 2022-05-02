@@ -2,17 +2,17 @@ import { projectFirebaseAuth } from "../firebase/config";
 import { useReducer, createContext } from "react";
 
 // initial state
-const initState = {
+export const initState = {
   user: null,
 };
 
-const ACTIONS = {
+export const ACTIONS = {
   LOGIN: "login",
   LOGOUT: "logout",
 };
 
 // create global context object
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 // create reducer func
 export const authReducer = (state, action) => {
@@ -31,7 +31,7 @@ export const authReducer = (state, action) => {
 export const AuthContextProvide = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initState);
 
-  // console.log("AuthContext state:", state);
+  console.log("AuthContext state:", state);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
