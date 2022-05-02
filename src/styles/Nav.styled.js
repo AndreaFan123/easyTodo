@@ -3,13 +3,15 @@ import styled from "styled-components";
 export const NavWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
-  margin: 10px auto;
+  margin: 15px auto;
   border-bottom: 2px dashed #333;
   nav {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
 
     a {
       font-size: 3rem;

@@ -1,10 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
+import { createRoot } from "react-dom/client";
+window.React = React;
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import App from "./App";
+import { AuthContextProvide } from "./context/authContext";
+
+const container = document.getElementById("root");
+const root = createRoot(container);
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <AuthContextProvide>
+    <App tab="home" />
+  </AuthContextProvide>
 );
