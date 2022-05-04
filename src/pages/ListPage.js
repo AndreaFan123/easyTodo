@@ -4,9 +4,11 @@ import { NavLink } from "react-router-dom";
 import TodoForm from "../components/TodoForm";
 import TodoItems from "../components/TodoItems";
 import { AddTodoWrapper } from "../styles/ListPage.styled";
+import { useAuthContext } from "../hooks/useContext";
 
 export default function ListPage() {
   const [todos, setTodos] = useState([]);
+  const { user } = useAuthContext();
 
   const addTodo = (text) => {
     let id = 1;
@@ -41,7 +43,7 @@ export default function ListPage() {
 
   return (
     <AddTodoWrapper>
-      <h2>My todos</h2>
+      <h2>{user.displayName}, add some todos</h2>
       <TodoForm addTodo={addTodo} />
       {todos.map((todo) => {
         return (

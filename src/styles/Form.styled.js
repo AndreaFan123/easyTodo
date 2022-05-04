@@ -40,6 +40,12 @@ export const FormContainer = styled.div`
     margin-top: 15px;
     margin-bottom: 30px;
     cursor: pointer;
+
+    &:hover {
+      transition: all 0.3s ease-in-out;
+      background: #f6bd41;
+      color: #333;
+    }
   }
 
   p {
@@ -48,6 +54,11 @@ export const FormContainer = styled.div`
     a {
       color: #ff1493;
       font-weight: 700;
+
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        color: #65b867;
+      }
     }
   }
 `;

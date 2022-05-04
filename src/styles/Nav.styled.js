@@ -52,6 +52,12 @@ export const NavWrapper = styled.div`
       margin-top: 15px;
       /* margin-bottom: 30px; */
       cursor: pointer;
+
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        background: #f6bd41;
+        color: #333;
+      }
     }
   }
 
