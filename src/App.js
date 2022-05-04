@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useAuthContext } from "./hooks/useContext";
 
 import HomePage from "./pages/HomePage";
 import ListPage from "./pages/ListPage";
@@ -11,27 +12,39 @@ import Navbar from "./components/Navbar";
 // import { WrapperStyle } from "./styles/Wrapper.styled";
 
 export default function App() {
+  const { user, alreadyLogin } = useAuthContext();
   return (
-    <BrowserRouter>
-      <div>
-        <GlobalStyles />
-        <Navbar />
+    <div>
+      {alreadyLogin && (
+        <BrowserRouter>
+          <GlobalStyles />
+          <Navbar />
+          <Routes>
+            {/* 如果路徑為"/"，檢查使用者是否有登入，若有，導到首頁；若無，則導到 login 頁面 */}
+            <Route
+              path="/"
+              element={user ? <HomePage /> : <Navigate to="/login" replace />}
+            />
 
-        <Routes>
-          {/* Add login condition to check if user is login or not */}
-          <Route exact="true" path="/" element={<HomePage />} />
-          {/* <Route path="/" element={user? <HomePage /> : <Navigate to="/login" replace/>}/> */}
+            {/* 如果路徑為"/lists"，檢查使用者是否登入，若有，導到 lists 頁面；若無，導到 login 頁面 */}
+            <Route
+              path="/lists"
+              element={user ? <ListPage /> : <Navigate to="/login" replace />}
+            />
 
-          <Route path="/lists" element={<ListPage />} />
-          {/* <Route path="/lists" element={!user? <LoginPage /> : <Navigate to="/" replace/>}/> */}
-
-          <Route path="/login" element={<LoginPage />} />
-          {/* <Route path="/lists" element={!user? <LoginPage /> : <Navigate to="/" replace/>}/> */}
-
-          <Route path="/signup" element={<SignupPage />} />
-          {/* <Route path="/signup" element={!user? <SignupPage /> : <Navigate to="/" replace/>}/> */}
-        </Routes>
-      </div>
-    </BrowserRouter>
+            {/* 如果路徑為"/login"，檢查使用者是否登入，若無，導到 login 頁面；若有，導到首頁 */}
+            <Route
+              path="/login"
+              element={!user ? <LoginPage /> : <Navigate to="/" replace />}
+            />
+            {/* 如果路徑為"/signup"，檢查使用者是否登入，若無，導到 signup 頁面；若有，導到首頁 */}
+            <Route
+              path="/signup"
+              element={!user ? <SignupPage /> : <Navigate to="/" replace />}
+            />
+          </Routes>
+        </BrowserRouter>
+      )}
+    </div>
   );
 }

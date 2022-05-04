@@ -1,15 +1,38 @@
-// import { useState } from "react";
-// import { projectFirebaseAuth } from "../firebase/config";
-// import { useAuthContext } from "./useContext";
-// import { ACTIONS } from "../context/authContext";
+import { useState } from "react";
+import { useAuthContext } from "./useContext";
+import { ACTIONS } from "../context/authContext";
 
-// export const useLogin = () => {
-//   // initial state, we need error and pending state to detect if there is an error or a loading
-//   const [error, setError] = useState(null);
-//   const [pending, setPending] = useState(false);
-//   // Need dispatch to detect what type of action
-//   const { dispatch} = useAuthContext();
+import { auth } from "../firebase/config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-//   // interact with firebase auth
-//   const login = (email, )
-// }
+export const useLogin = () => {
+  // setup initial state
+  const [error, setError] = useState(null);
+  const [pending, setPending] = useState(false);
+  const { dispatch } = useAuthContext();
+
+  // create login func
+  const login = async (email, password) => {
+    setError(null);
+    setPending(true);
+
+    try {
+      const res = await signInWithEmailAndPassword(auth, email, password);
+
+      if (!res) {
+        throw new Error("Could not login, try after 1 min");
+      }
+
+      dispatch({
+        type: ACTIONS.LOGIN,
+        payload: res.user,
+      });
+    } catch (error) {
+      setError(error.message);
+      console.log(error.message);
+      setPending(false);
+    }
+  };
+
+  return { login, pending, error };
+};

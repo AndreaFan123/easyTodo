@@ -58,11 +58,13 @@ export default function SignupPage() {
         </label>
 
         <FlexWrapper>
-          <button>Signup</button>
+          {!pending && <button>Signup</button>}
+          {pending && <button disabled>Registering</button>}
           <p>
             Already a member? <NavLink to="/login">Login</NavLink> here
           </p>
         </FlexWrapper>
+        {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
     </FormContainer>
   );

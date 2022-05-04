@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useAuthContext } from "./useContext";
 import { ACTIONS } from "../context/authContext";
 
-import { projectFirebaseAuth } from "../firebase/config";
+import { auth } from "../firebase/config";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 export const useSignup = () => {
   // need error and pending to detect state changing
@@ -20,11 +21,8 @@ export const useSignup = () => {
     // use try catch block to make sure the error is detectable
     try {
       // get response from firebase auth
-      const res = await projectFirebaseAuth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      console.log(res);
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      // console.log(res);
 
       // if there's no res, we throw an error
       if (!res) {
@@ -32,7 +30,9 @@ export const useSignup = () => {
       }
 
       // update user profile by sending displayname when we have a res
-      await res.user.updateProfile(displayName);
+      await updateProfile(auth.currentUser, {
+        displayName: displayName,
+      });
 
       // fire login action
       dispatch({

@@ -15,7 +15,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // init firebase auth and get a reference to the service
-const projectFirebaseAuth = getAuth(app);
-const projectFirestore = getFirestore(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-export { projectFirebaseAuth, projectFirestore };
+export { auth, db };
+
+// const projectFirebaseAuth = getAuth(app);
+// const projectFirestore = getFirestore(app);
+
+// export { projectFirebaseAuth, projectFirestore };

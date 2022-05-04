@@ -26,6 +26,7 @@ export const FormContainer = styled.div`
     margin-bottom: 25px;
     border-radius: 5px;
     border: 1px solid #333;
+    font-size: 1.2rem;
   }
 
   button {
@@ -34,14 +35,15 @@ export const FormContainer = styled.div`
     border-bottom: 4px solid #999;
     background: #ff1493;
     color: #fafafa;
-    padding: 10px 40px;
+    padding: 10px 30px;
     font-size: 1.3rem;
     margin-top: 15px;
     margin-bottom: 30px;
+    cursor: pointer;
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     a {
       color: #ff1493;

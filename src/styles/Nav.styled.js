@@ -35,6 +35,24 @@ export const NavWrapper = styled.div`
       color: deepskyblue;
       -webkit-text-stroke: 1px #333;
     }
+
+    span {
+      font-size: 1.2rem;
+      padding-right: 15px;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      border-bottom: 4px solid #999;
+      background: #ff1493;
+      color: #fafafa;
+      padding: 10px 30px;
+      font-size: 1.3rem;
+      margin-top: 15px;
+      /* margin-bottom: 30px; */
+      cursor: pointer;
+    }
   }
 
   @media (max-width: 540px) {
