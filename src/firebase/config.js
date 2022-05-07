@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCPKjGHccpc5zgWXFPhWiR5ngJacsA_ht8",
-  authDomain: "easytodo-0429.firebaseapp.com",
-  projectId: "easytodo-0429",
-  storageBucket: "easytodo-0429.appspot.com",
-  messagingSenderId: "117197975120",
-  appId: "1:117197975120:web:a4f314d9ddd9ce55c76b55",
+  apiKey: "AIzaSyCV7FILz1nkI96OXMSVY0yzeVlF3AtGmm4",
+  authDomain: "easytodo-0508.firebaseapp.com",
+  projectId: "easytodo-0508",
+  storageBucket: "easytodo-0508.appspot.com",
+  messagingSenderId: "747285328103",
+  appId: "1:747285328103:web:fb39c7384004da61523242",
 };
 
 // init firebase
