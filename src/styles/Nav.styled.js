@@ -62,7 +62,7 @@ export const NavWrapper = styled.div`
     }
   }
 
-  @media (max-width: 762px) {
+  @media (max-width: 780px) {
     nav {
       flex-direction: column;
       align-items: center;
