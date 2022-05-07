@@ -40,9 +40,15 @@ export const useSignup = () => {
         payload: res.user,
       });
     } catch (error) {
-      setError(error.message);
-      console.log(error.message);
+      if (error.code === "auth/email-already-in-use") {
+        setError("Email already in use");
+      } else if (error.code === "auth/weak-password") {
+        setError("Password needs to be at least 6 characters or digits");
+      } else {
+        setError(error.message);
+      }
       // since there's an error, we stoping loading anything
+    } finally {
       setPending(false);
     }
   };

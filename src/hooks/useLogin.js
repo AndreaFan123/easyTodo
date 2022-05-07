@@ -28,8 +28,16 @@ export const useLogin = () => {
         payload: res.user,
       });
     } catch (error) {
-      setError(error.message);
-      console.log(error.message);
+      if (
+        error.code === "auth/user-not-found" ||
+        error.code === "auth/wrong-password"
+      ) {
+        setError("Email or password is not valid, please try again");
+      } else {
+        setError(error.message);
+      }
+      // since there's an error, we stoping loading anything
+    } finally {
       setPending(false);
     }
   };

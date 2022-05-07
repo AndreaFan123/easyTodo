@@ -22,8 +22,11 @@ export default function ListPage() {
   useEffect(() => {
     const q = query(collection(db, "todos"));
     const unsub = onSnapshot(q, (QuerySnapshot) => {
+      // console.log("this is result of QuerySnapshot:", QuerySnapshot);
       let todosArr = [];
       QuerySnapshot.forEach((doc) => {
+        // const result = doc.data();
+        // console.log("This is the result from queryDocumentSanpshot:", result);
         todosArr.push({ ...doc.data(), id: doc.id });
       });
       setTodos(todosArr);
@@ -31,44 +34,55 @@ export default function ListPage() {
     return () => unsub();
   }, []);
 
-  const addTodo = (text) => {
-    let id = 1;
-    if (todos.length > 0) {
-      id = todos[0].id + 1;
-    }
+  // const addTodo = (text) => {
+  //   let id = 1;
+  //   if (todos.length > 0) {
+  //     id = todos[0].id + 1;
+  //   }
 
-    let todo = {
-      id: id,
-      text: text,
-      completed: false,
-    };
-    let newTodos = [todo, ...todos];
-    setTodos(newTodos);
-  };
+  //   let todo = {
+  //     id: id,
+  //     text: text,
+  //     completed: false,
+  //   };
+  //   let newTodos = [todo, ...todos];
+  //   setTodos(newTodos);
+  // };
 
   const removeTodo = async (id) => {
-    let updateTodo = [...todos].filter((todo) => todo.id !== id);
     await deleteDoc(doc(db, "todos", id));
-    setTodos(updateTodo);
   };
 
-  const completedTodo = (id) => {
-    let updateTodo = todos.map((todo) => {
-      const toDoRef = doc(db, "todos", todo.id);
-      updateDoc(toDoRef, { completed: true });
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
-      }
-      return todo;
+  const completedTodo = async (todo) => {
+    const toDoRef = doc(db, "todos", todo);
+    await updateDoc(toDoRef, {
+      completed: true,
     });
-
-    setTodos(updateTodo);
+    // console.log(todo);
+    // await updateDoc(doc(db, "todos", todo.id), { completed: !todo.completed });
   };
+
+  //  async function completedTodo(id) {
+  //   let updateTodo = todos.map((todo) => {
+  //     const toDoRef = doc(db, "todos", todo.id);
+  //     await updateDoc(toDoRef, { completed: true });
+  //     if (todo.id === id) {
+  //       todo.completed = !todo.completed;
+  //     }
+  //     return todo;
+  //   });
+
+  //   setTodos(updateTodo);
+  // };
+
+  // const completedTodo = (id) => {
+
+  // };
 
   return (
     <AddTodoWrapper>
       <h2>{user.displayName}, add some todos</h2>
-      <TodoForm addTodo={addTodo} />
+      <TodoForm />
       {todos.map((todo) => {
         return (
           <TodoItems
@@ -76,7 +90,7 @@ export default function ListPage() {
             key={todo.id}
             removeTodo={removeTodo}
             completedTodo={completedTodo}
-            isCompleted={false}
+            // isCompleted={false}
           />
         );
       })}

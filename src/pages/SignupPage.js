@@ -44,6 +44,7 @@ export default function SignupPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              // style={{ borderColor: error ? "red" : "none" }}
             />
           </label>
 
@@ -55,6 +56,7 @@ export default function SignupPage() {
               value={password}
               placeholder="At least 6 digits"
               onChange={(e) => setPassword(e.target.value)}
+              // style={{ borderColor: error ? "red" : "none" }}
             />
           </label>
 

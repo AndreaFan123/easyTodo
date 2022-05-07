@@ -32,6 +32,12 @@ export const FormContainer = styled.div`
     border-radius: 5px;
     border: 1px solid #333;
     font-size: 1.2rem;
+
+    &:focus {
+      outline: none !important;
+      border-color: #719ece;
+      box-shadow: 0 0 6px #719ece;
+    }
   }
 
   button {

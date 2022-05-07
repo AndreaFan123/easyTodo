@@ -3,20 +3,20 @@ import { FormWrapper } from "../styles/TodoForm.styled";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 
-export default function TodoForm({ addTodo }) {
+export default function TodoForm() {
   // Create initial state
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
+    e.preventDefault();
     setInputValue(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (inputValue !== "") {
-      addTodo(inputValue);
       await addDoc(collection(db, "todos"), {
-        inputValue,
+        task: inputValue,
         completed: false,
       });
       setInputValue("");
@@ -24,8 +24,7 @@ export default function TodoForm({ addTodo }) {
   };
 
   const handleKeyDown = async (e) => {
-    if (e.key === "Enter") {
-      addTodo(inputValue);
+    if (inputValue !== "" && e.key === "Enter") {
       await addDoc(collection(db, "todos"), {
         inputValue,
         completed: false,
