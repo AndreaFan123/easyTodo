@@ -22,7 +22,6 @@ export const useSignup = () => {
     try {
       // get response from firebase auth
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      // console.log(res);
 
       // if there's no res, we throw an error
       if (!res) {
