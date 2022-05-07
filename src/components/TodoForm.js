@@ -16,7 +16,7 @@ export default function TodoForm() {
     e.preventDefault();
     if (inputValue !== "") {
       await addDoc(collection(db, "todos"), {
-        task: inputValue,
+        inputValue,
         completed: false,
       });
       setInputValue("");
