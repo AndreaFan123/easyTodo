@@ -36,7 +36,7 @@ export const authReducer = (state, action) => {
 export const AuthContextProvide = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initState);
 
-  console.log("AuthContext state:", state);
+  // console.log("AuthContext state:", state);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
