@@ -19,8 +19,3 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 export { auth, db };
-
-// const projectFirebaseAuth = getAuth(app);
-// const projectFirestore = getFirestore(app);
-
-// export { projectFirebaseAuth, projectFirestore };

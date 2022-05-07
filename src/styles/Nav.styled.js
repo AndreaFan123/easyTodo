@@ -33,6 +33,7 @@ export const NavWrapper = styled.div`
     p {
       font-size: 2rem;
       color: deepskyblue;
+      padding-bottom: 10px;
       -webkit-text-stroke: 1px #333;
     }
 
@@ -61,7 +62,7 @@ export const NavWrapper = styled.div`
     }
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: 762px) {
     nav {
       flex-direction: column;
       align-items: center;

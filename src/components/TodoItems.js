@@ -16,7 +16,7 @@ export default function TodoItems({ todo, removeTodo, completedTodo }) {
           textDecoration: todo.completed ? "line-through" : "none",
         }}
       >
-        {todo.text}
+        {todo.inputValue}
         <IconWrapper>
           <RiCheckboxCircleLine
             style={CheckIconStyle}

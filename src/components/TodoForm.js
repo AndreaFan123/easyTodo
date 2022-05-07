@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { BsPlusLg } from "react-icons/bs";
 import { FormWrapper } from "../styles/TodoForm.styled";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 export default function TodoForm({ addTodo }) {
   // Create initial state
@@ -10,18 +11,28 @@ export default function TodoForm({ addTodo }) {
     setInputValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (inputValue !== "") {
       addTodo(inputValue);
+      await addDoc(collection(db, "todos"), {
+        inputValue,
+        completed: false,
+      });
       setInputValue("");
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = async (e) => {
     if (e.key === "Enter") {
       addTodo(inputValue);
+      await addDoc(collection(db, "todos"), {
+        inputValue,
+        completed: false,
+      });
       setInputValue("");
+    } else {
+      return;
     }
   };
 
