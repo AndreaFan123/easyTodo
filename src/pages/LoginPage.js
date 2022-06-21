@@ -6,8 +6,8 @@ import { useLogin } from "../hooks/useLogin";
 import { useState } from "react";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test10@test.com");
+  const [password, setPassword] = useState("1234567");
   const { login, pending, error } = useLogin();
 
   const handleSubmit = (e) => {
